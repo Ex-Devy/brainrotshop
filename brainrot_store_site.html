@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brainrot Shop</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial Black', sans-serif;
+      background: #fffbea;
+      color: #333;
+    }
+    header {
+      background: #ffd500;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+      font-size: 28px;
+      letter-spacing: 2px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: #fff;
+      border: 3px solid #ffd500;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ffe566;
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      background: #fff8d1;
+    }
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 20px;
+      color: #222;
+    }
+    .card p {
+      margin-bottom: 15px;
+      color: #bfa300;
+      font-weight: bold;
+    }
+    .product-page {
+      display: none;
+      padding: 30px;
+      text-align: center;
+    }
+    .product-page img {
+      width: 300px;
+      border: 4px solid #ffd500;
+      border-radius: 10px;
+      background: #fff;
+    }
+    .btn {
+      display: inline-block;
+      margin: 15px;
+      padding: 12px 25px;
+      background: #ffd500;
+      color: #333;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #ffeb66;
+    }
+  </style>
+</head>
+<body>
+  <header>🧠 Brainrot Shop</header>
+  <div class="container" id="store">
+    <div class="card" onclick="openProduct('Skibidi Toilet 3D', 'R$49,90', 'https://via.placeholder.com/300x200.png?text=Skibidi+Toilet')">
+      <img src="https://via.placeholder.com/300x200.png?text=Skibidi+Toilet" alt="Produto 1">
+      <h3>Skibidi Toilet 3D</h3>
+      <p>R$49,90</p>
+    </div>
+    <div class="card" onclick="openProduct('Doge Classic', 'R$39,90', 'https://via.placeholder.com/300x200.png?text=Doge+Classic')">
+      <img src="https://via.placeholder.com/300x200.png?text=Doge+Classic" alt="Produto 2">
+      <h3>Doge Classic</h3>
+      <p>R$39,90</p>
+    </div>
+    <div class="card" onclick="openProduct('Ohio Fanboy', 'R$59,90', 'https://via.placeholder.com/300x200.png?text=Ohio+Fanboy')">
+      <img src="https://via.placeholder.com/300x200.png?text=Ohio+Fanboy" alt="Produto 3">
+      <h3>Ohio Fanboy</h3>
+      <p>R$59,90</p>
+    </div>
+  </div>
+
+  <div class="product-page" id="productPage">
+    <h2 id="productName"></h2>
+    <img id="productImg" src="" alt="Produto">
+    <p id="productPrice"></p>
+    <a id="buyBtn" href="#" class="btn" target="_blank">Comprar no Instagram</a><br>
+    <button class="btn" onclick="backToStore()">Voltar para a Loja</button>
+  </div>
+
+  <script>
+    function openProduct(name, price, img) {
+      document.getElementById('store').style.display = 'none';
+      document.getElementById('productPage').style.display = 'block';
+      document.getElementById('productName').innerText = name;
+      document.getElementById('productPrice').innerText = price;
+      document.getElementById('productImg').src = img;
+      document.getElementById('buyBtn').href = 'https://instagram.com/direct/t/seuusuario';
+    }
+
+    function backToStore() {
+      document.getElementById('store').style.display = 'grid';
+      document.getElementById('productPage').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
