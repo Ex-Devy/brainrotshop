@@ -19,10 +19,40 @@
       font-size: 28px;
       letter-spacing: 2px;
       box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+      position: relative;
     }
+    /* Botão do Instagram no canto direito */
+    #instagramBtn {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #E1306C;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 8px 15px;
+      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    #instagramBtn:hover {
+      background: #ff5e9e;
+    }
+
+    /* Barra amarela abaixo do header com M/s */
+    .ms-bar {
+      background: #ffd500;
+      color: #333;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 18px;
+      font-weight: bold;
+    }
+
     .container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(2, 1fr); /* 2 produtos por linha */
       gap: 20px;
       padding: 30px;
       max-width: 600px;
@@ -36,6 +66,7 @@
       text-align: center;
       transition: 0.3s;
       cursor: pointer;
+      padding-bottom: 10px;
     }
     .card:hover {
       transform: scale(1.05);
@@ -53,10 +84,17 @@
       color: #222;
     }
     .card p {
-      margin-bottom: 15px;
+      margin-bottom: 5px;
       color: #bfa300;
       font-weight: bold;
     }
+    .card .ms-text {
+      margin-bottom: 10px;
+      color: #333;
+      font-weight: normal;
+      font-size: 16px;
+    }
+
     .product-page {
       display: none;
       padding: 30px;
@@ -88,27 +126,39 @@
   </style>
 </head>
 <body>
-  <header>🧠 Brainrot Shop</header>
+  <header>
+    🧠 Brainrot Shop
+    <a id="instagramBtn" href="https://instagram.com/seuusuario" target="_blank">Instagram</a>
+  </header>
+
+  <div class="ms-bar">
+    La Extinct: 24.5M/s | Garama: 50M/s | Mariachi: 18M/s | Nuclearo: 48M/s
+  </div>
+
   <div class="container" id="store">
     <div class="card" onclick="openProduct('Garama and Madundung', 'R$49,90', 'garama.jpeg')">
       <img src="garama.jpeg" alt="Garama">
       <h3>Garama and Madundung</h3>
       <p>R$49,90</p>
+      <div class="ms-text">50 M/s</div>
     </div>
     <div class="card" onclick="openProduct('La Extinct Grande', 'R$22,00', 'laextinct.jpeg')">
       <img src="laextinct.jpeg" alt="La Extinct Grande">
       <h3>La Extinct Grande</h3>
       <p>R$22,00</p>
+      <div class="ms-text">24.5 M/s</div>
     </div>
     <div class="card" onclick="openProduct('Nuclearo Dinossauro', 'R$28,00', 'nuclearo.jpeg')">
       <img src="nuclearo.jpeg" alt="Nuclearo Dinossauro">
       <h3>Nuclearo Dinossauro</h3>
       <p>R$28,00</p>
+      <div class="ms-text">48 M/s</div>
     </div>
     <div class="card" onclick="openProduct('Mariachi Corazoni', 'R$19,00', 'mariachi.jpeg')">
       <img src="mariachi.jpeg" alt="Mariachi Corazoni">
       <h3>Mariachi Corazoni</h3>
       <p>R$19,00</p>
+      <div class="ms-text">18 M/s</div>
     </div>
   </div>
 
