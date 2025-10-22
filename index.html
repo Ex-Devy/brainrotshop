@@ -9,25 +9,29 @@
     body {
       margin: 0;
       font-family: 'Arial Black', sans-serif;
-      background: #fffbea;
+      background: linear-gradient(to bottom, #ffd500, #fff6b0);
       color: #333;
     }
+
+    /* Cabeçalho principal */
     header {
-      background: #ffd500;
+      background: #ffcf00;
       color: #333;
-      text-align: center;
-      padding: 20px;
-      font-size: 28px;
-      letter-spacing: 2px;
-      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 40px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
-    /* Botão do Instagram no canto direito */
+
+    header h1 {
+      font-size: 28px;
+      margin: 0;
+      letter-spacing: 1px;
+    }
+
+    /* Botão do Instagram */
     #instagramBtn {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
       background: #E1306C;
       color: white;
       border: none;
@@ -36,77 +40,101 @@
       cursor: pointer;
       font-weight: bold;
       text-decoration: none;
+      transition: 0.3s;
     }
     #instagramBtn:hover {
       background: #ff5e9e;
     }
 
-    /* Barra amarela abaixo do header com M/s */
+    /* Barra de info */
     .ms-bar {
-      background: #ffd500;
+      background: #ffe766;
       color: #333;
       text-align: center;
-      padding: 10px 0;
-      font-size: 18px;
+      padding: 10px;
+      font-size: 16px;
       font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
+    /* Título de seção */
+    h2.section-title {
+      text-align: center;
+      color: #333;
+      font-size: 26px;
+      letter-spacing: 1px;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* Grade de produtos */
     .container {
       display: grid;
-      grid-template-columns: repeat(2, 1fr); /* 2 produtos por linha */
-      gap: 20px;
-      padding: 30px;
-      max-width: 600px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      padding: 40px;
+      max-width: 1000px;
       margin: auto;
     }
+
+    /* Card de produto */
     .card {
-      background: #fff;
-      border: 3px solid #ffd500;
-      border-radius: 10px;
-      overflow: hidden;
+      background: #fffbe8;
+      border-radius: 14px;
       text-align: center;
+      padding-bottom: 15px;
       transition: 0.3s;
       cursor: pointer;
-      padding-bottom: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border: 3px solid #ffd500;
     }
+
     .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ffe566;
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     }
+
     .card img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
-      background: #fff8d1;
+      background: #fff3b0;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
     }
+
     .card h3 {
       margin: 10px 0 5px;
       font-size: 20px;
       color: #222;
     }
+
     .card p {
-      margin-bottom: 5px;
+      margin: 5px 0;
       color: #bfa300;
       font-weight: bold;
-    }
-    .card .ms-text {
-      margin-bottom: 10px;
-      color: #333;
-      font-weight: normal;
-      font-size: 16px;
+      font-size: 18px;
     }
 
+    .ms-text {
+      color: #444;
+      font-size: 15px;
+    }
+
+    /* Página do produto */
     .product-page {
       display: none;
-      padding: 30px;
       text-align: center;
+      padding: 40px;
     }
+
     .product-page img {
       width: 300px;
       border: 4px solid #ffd500;
       border-radius: 10px;
       background: #fff;
     }
+
     .btn {
       display: inline-block;
       margin: 15px;
@@ -121,6 +149,7 @@
       font-weight: bold;
       transition: 0.3s;
     }
+
     .btn:hover {
       background: #ffeb66;
     }
@@ -128,13 +157,15 @@
 </head>
 <body>
   <header>
-    Brainrot Shop
+    <h1>🧠 Brainrot Shop</h1>
     <a id="instagramBtn" href="https://www.instagram.com/lojinhasbrainrots/" target="_blank">Instagram</a>
   </header>
 
   <div class="ms-bar">
-   ESTOQUE NOVO TODA SEMANA | PROMOÇÃO DE PRIMEIRA COMPRA | VÍDEO DA ENTREGA NO PERFIL 
+    ESTOQUE NOVO TODA SEMANA | PRIMEIRA COMPRA COM DESCONTO | VÍDEO DA ENTREGA NO PERFIL
   </div>
+
+  <h2 class="section-title">✨ DESTAQUES ✨</h2>
 
   <div class="container" id="store">
     <div class="card" onclick="openProduct('Garama and Madundung', 'R$49,90', 'garama.jpeg')">
@@ -143,18 +174,21 @@
       <p>R$49,90</p>
       <div class="ms-text">50 M/s</div>
     </div>
+
     <div class="card" onclick="openProduct('La Extinct Grande', 'R$22,00', 'laextinct.jpeg')">
       <img src="laextinct.jpeg" alt="La Extinct Grande">
       <h3>La Extinct Grande</h3>
       <p>R$22,00</p>
       <div class="ms-text">24.5 M/s</div>
     </div>
+
     <div class="card" onclick="openProduct('Nuclearo Dinossauro', 'R$28,00', 'nuclearo.jpeg')">
       <img src="nuclearo.jpeg" alt="Nuclearo Dinossauro">
       <h3>Nuclearo Dinossauro</h3>
       <p>R$28,00</p>
       <div class="ms-text">48 M/s</div>
     </div>
+
     <div class="card" onclick="openProduct('Mariachi Corazoni', 'R$19,00', 'mariachi.jpeg')">
       <img src="mariachi.jpeg" alt="Mariachi Corazoni">
       <h3>Mariachi Corazoni</h3>
